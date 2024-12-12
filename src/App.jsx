@@ -111,24 +111,28 @@ function App({}) {
   return (
     <div className="App">
       <Title />
-      <div className="game-container">
-        <Figure wrongLetters={wrongLetters} />
-        <button
-          type="button"
-          name="Hint Button"
-          className={`btn hint-btn ${hint && "show"}`}
-          onClick={() => setShowHint(true)}
-        >
-          <FaLightbulb />
-        </button>
-        {showHint && hint !== null && <Hint hint={hint} setter={setShowHint} />}
-        <Word correctLetters={correctLetters} word={word} />
+      <div className="wrapper">
+        <div className="game-container">
+          <Figure wrongLetters={wrongLetters} />
+          <button
+            type="button"
+            name="Hint Button"
+            className={`btn hint-btn ${hint && "show"}`}
+            onClick={() => setShowHint(true)}
+          >
+            <FaLightbulb />
+          </button>
+          {showHint && hint !== null && (
+            <Hint hint={hint} setter={setShowHint} />
+          )}
+          <Word correctLetters={correctLetters} word={word} />
+        </div>
+        <Keyboard
+          wrongLetters={wrongLetters}
+          correctLetters={correctLetters}
+          keyClickHandler={keyClickHandler}
+        />
       </div>
-      <Keyboard
-        wrongLetters={wrongLetters}
-        correctLetters={correctLetters}
-        keyClickHandler={keyClickHandler}
-      />
       {/* <Notification /> */}
     </div>
   );
