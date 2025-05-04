@@ -15,7 +15,7 @@ function App({}) {
   const [status, setStatus] = useState("");
   const [showHint, setShowHint] = useState(false);
   const [playable, setPlayable] = useState(true);
-  const [correctLetters, setCorrectLetters] = useState([]);
+  const [correctLetters, setCorrectLetters] = useState(["a", "e", "i", "o", "u"]);
   const [wrongLetters, setWrongLetters] = useState([]);
 
   function startGame() {
@@ -40,9 +40,10 @@ function App({}) {
 
   useEffect(() => {
     let _status = "win";
-    if (correctLetters.length === 0) {
+    if (correctLetters.length === 5) {
       _status = "";
     }
+    
     word.split("").forEach((letter) => {
       if (!correctLetters.includes(letter)) {
         _status = "";
@@ -85,7 +86,7 @@ function App({}) {
   }
 
   function replayGame() {
-    setCorrectLetters([]);
+    setCorrectLetters(["a","e","i","o","u"]);
     setWrongLetters([]);
     setStatus("");
     startGame();
