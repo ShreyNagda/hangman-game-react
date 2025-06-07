@@ -1,4 +1,4 @@
 function Title() {
-  return <div className="title">Guess or Hang. </div>;
+  return <h1 className="title">Guess or Hang. </h1>;
 }
 export default Title;
